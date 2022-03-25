@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<!-- Bootstrap CSS -->
+ 
+<link rel="stylesheet" href="css/signin.css" th:href="@{/css/signin.css}">
+<link rel="stylesheet" href="css/bootstrap.css" th:href="@{/css/bootstrap.css}">
+
+<title>Nuevo Usuario</title>
+
+</head>
+<body>
+<main class="form-signin">
+<form th:action="@{/colaborador/registrarColaborador}" th:object="${objColaborador}" method="post">
+<img class="mb-4" src="" alt="" width="72" height="57">
+<h1 class="h3 mb-3 fw-normal"><b>Nuevo Colaborador</b></h1>
+
+<div th:if="${mensaje!=null}" th:text="${mensaje}"></div>
+<label><span></span></label>
+<div class="form-floating">
+<input type="text" class="form-control" id="nombres" placeholder="Nombres" name="nombres" th:field="*{nombres}" />
+<label for="floatingInput">Nombres</label>
+</div>
+<div class="form-floating">
+<input type="text" class="form-control" id="apePaterno" placeholder="apellido Paterno" name="apePaterno" th:field="*{apellidoPaterno}" />
+<label for="floatingInput">Apellido Paterno</label>
+</div>
+<div class="form-floating">
+<input type="text" class="form-control" id="apeMaterno" placeholder="apellido Materno" name="apeMaterno" th:field="*{apellidoMaterno}" />
+<label for="floatingInput">Apellido Materno</label>
+</div>
+<div class="form-floating">
+<input type="text" class="form-control" id="dni" placeholder="DNI" name="dni" th:field="*{dni}" />
+<label for="floatingInput">DNI</label>
+</div>
+
+	<button class="w-100 btn btn-lg btn-success" type="submit"
+			value="Grabar">Grabar</button>
+		<br> <br>
+	
+		<p>
+			<a class="w-100 btn btn-lg btn-outline-info" th:href="@{/}">Regresar</a>
+		</p>
+	
+	</form>
+	</main>
+
+</body>
+</html>

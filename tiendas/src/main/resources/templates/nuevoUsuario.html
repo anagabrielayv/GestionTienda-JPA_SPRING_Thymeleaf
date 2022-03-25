@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<!-- Bootstrap CSS -->
+ 
+<link rel="stylesheet" href="css/signin.css" th:href="@{/css/signin.css}">
+<link rel="stylesheet" href="css/bootstrap.css" th:href="@{/css/bootstrap.css}">
+
+<title>Nuevo Usuario</title>
+
+</head>
+<body>
+<main class="form-signin">
+<form th:action="@{/usuario/registrarUsuario}" th:object="${objUsuario}" method="post">
+<img class="mb-4" src="" alt="" width="72" height="57">
+<h1 class="h3 mb-3 fw-normal"><b>Nuevo Usuario</b></h1>
+
+<div th:if="${mensaje!=null}" th:text="${mensaje}"></div>
+<label><span></span></label>
+<div class="form-floating">
+<input type="email" class="form-control" id="correo" placeholder="correo" name="correo" th:field="*{correo}" />
+<label for="floatingInput">Correo Electronico</label>
+</div>
+<div class="form-floating">
+<input type="text" class="form-control" id="nombre" placeholder="nombre" name="nombre" th:field="*{nombre}" />
+<label for="floatingInput">Nombre</label>
+</div>
+<div class="form-floating">
+<input type="text" class="form-control" id="apePaterno" placeholder="apellido Paterno" name="apePaterno" th:field="*{apePaterno}" />
+<label for="floatingInput">Apellido Paterno</label>
+</div>
+<div class="form-floating">
+<input type="text" class="form-control" id="apeMaterno" placeholder="apellido Materno" name="apeMaterno" th:field="*{apeMaterno}" />
+<label for="floatingInput">Apellido Materno</label>
+</div>
+<div class="form-floating">
+<input type="text" class="form-control" id="direccion" placeholder="Direccion" name="direccion" th:field="*{direccion}" />
+<label for="floatingInput">Direccion</label>
+</div>
+
+<div class="form-floating">
+<input type="password" class="form-control" id="password" placeholder="Password" name="password" th:field="*{password}" />
+<label for="floatingPassword">Contraseña</label>
+</div>
+	<button class="w-100 btn btn-lg btn-success" type="submit"
+			value="Grabar">Grabar</button>
+		<br> <br>
+	
+		<p>
+			<a class="w-100 btn btn-lg btn-outline-info" th:href="@{/}">Regresar</a>
+		</p>
+		
+	</form>
+	</main>
+
+</body>
+</html>

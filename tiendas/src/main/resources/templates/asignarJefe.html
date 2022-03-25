@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<!-- Bootstrap CSS -->
+ 
+<link rel="stylesheet" href="css/signin.css" th:href="@{/css/signin.css}">
+<link rel="stylesheet" href="css/bootstrap.css" th:href="@{/css/bootstrap.css}">
+
+<title>Asignacion</title>
+
+</head>
+<body class="text-center">
+<main class="form-signin">
+<form th:action="@{/tienda/grabarAsignacion}" th:object="${objTienda}" method="post">
+<img class="mb-4" src="" alt="" width="72" height="57">
+<h1 class="h3 mb-3 fw-normal"><b>Asignacion</b></h1>
+
+
+<label><span></span></label>
+<div class="form-floating">
+<input type="text" class="form-control" id="id" placeholder="Id" name="id" th:field="*{id}" readOnly />
+<label for="floatingInput">Id</label>
+</div>
+<div class="form-floating">
+<input type="text" class="form-control" id="direccion" placeholder="Direccion" name="direccion" th:field="*{direccion}" readOnly />
+<label for="floatingInput">Direccion</label>
+</div>
+<div class="form-floating">
+<input type="text" class="form-control" id="distrito" placeholder="Distrito" name="distrito" th:field="*{distrito}" readOnly />
+<label for="floatingInput">Distrito</label>
+</div>
+<input class="d-none" type="text" id="aforo" name="aforo" th:field="*{aforo}" />
+
+<div class="input-group mt-3">  
+  <select class="form-select" name="idColaborador" id="idColaborador">
+    
+    <option 
+    th:each="colaborador : ${listaColaboradores}"
+	th:value="${colaborador.id}"
+	th:text="${colaborador.nombres}"></option>
+   
+  </select>
+  <button class="btn btn-outline-success" type="submit">Grabar</button>
+</div>
+<div th:if="${mensaje!=null}" th:text="${mensaje}"></div>
+		<p>
+			<a class="w-100 btn btn-lg btn-outline-info mt-3" th:href="@{/}">Regresar</a>
+		</p>
+		
+</form>
+
+</main>
+
+</body>
+</html>

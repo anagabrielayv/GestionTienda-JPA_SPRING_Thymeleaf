@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+
+ <!-- Bootstrap CSS -->
+ <link rel="stylesheet" href="css/bootstrap.css" th:href="@{/css/bootstrap.css}">
+
+<title>Asignar Jefe de Tienda</title>
+</head>
+<body class="text-center">
+<div class="container mx-auto pt-5">
+<div class="row">
+<br><br>
+<h2><b>Asignar Jefe de Tienda</b></h2>
+<br>
+
+	<br>
+	<form th:action="@{/tienda/buscarTiendaAsignar}" th:object="${objTienda}" method="post">
+		<label>Distrito : </label> <input type="text" name="distrito" id="distrito" th:value="*{distrito}" >
+		<button class="btn btn-primary" type="submit" value="Buscar">Buscar</button>		
+	</form>
+	<br>
+	<br>
+<div th:if="${mensaje!=null}" th:text="${mensaje}"></div>
+<br>
+	<br>
+	<table class="table table-dark table-striped table-hover ">
+		<thead>
+		<tr>
+			<td>Id </td>
+			<td>Direccion</td>
+			<td>Distrito</td>
+			<td>Aforo</td>
+			<td>Accion</td>
+		</tr>
+		</thead>
+		<tbody>
+		<tr th:each="tienda: ${listaTiendas}">
+			<td th:text="${tienda.id}"></td>
+            <td th:text="${tienda.direccion}"></td>
+            <td th:text="${tienda.distrito}"></td>
+            <td th:text="${tienda.aforo}"></td>
+            <td><a
+				th:href="@{/tienda/cargarAsignacion/{id} (id=${tienda.id}) }">Asignar</a></td>
+		</tr>
+		</tbody>	
+	</table>
+<br />
+<br />
+<p class="pt-5" >
+<a class="btn btn-outline-info" th:href="@{/}">Regresar</a>
+</p>
+ </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="css/signin.css"
+	th:href="@{/css/signin.css}">
+<link rel="stylesheet" href="css/bootstrap.css"
+	th:href="@{/css/bootstrap.css}">
+
+<title>Modificar Contraseña</title>
+
+</head>
+<body>
+	<main class="form-signin">
+
+		<form th:action="@{/usuario/modificarContrasenha}"
+			th:object="${objUsuario}" method="post">
+			<h1 class="h3 mb-3 fw-normal"><b>Recuperar Contraseña</b></h1>
+
+			<label><span></span></label>
+			<div class="form-floating">
+				<input type="email" class="form-control" id="correo" placeholder="correo" name="correo" th:field="*{correo}" > <label
+					for="floatingInput">Correo Electronico</label>
+			</div>
+			<div class="form-floating">
+				<input type="password" class="form-control" placeholder="Nueva Contraseña" th:name="contra1" id="contra1"  /> <label
+					for="floatingInput">Nueva Contraseña</label>
+			</div>
+			<div class="form-floating">
+				<input type="password" class="form-control" placeholder="Repita Contraseña" th:name="contra2" id="contra2" /> <label
+					for="floatingInput">Repita Contraseña</label>
+			</div>
+			
+			<button class="w-100 btn btn-lg btn-success" type="submit"
+				value="Actualizar">Actualizar</button>
+				
+				<br> <br>
+					<p>
+				<a class="w-100 btn btn-lg btn-outline-info" th:href="@{/}">Inicio</a>
+			</p>
+		</form>
+		<br>
+		<br>
+		<br>
+		<div th:if="${mensaje!=null}" th:text="${mensaje}"></div>
+
+	</main>
+</body>
+</html>

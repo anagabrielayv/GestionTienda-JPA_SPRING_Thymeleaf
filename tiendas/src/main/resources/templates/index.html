@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="css/signin.css"
+	th:href="@{/css/signin.css}">
+<link rel="stylesheet" href="css/bootstrap.css"
+	th:href="@{/css/bootstrap.css}">
+
+
+<title>Login</title>
+
+</head>
+<body class="text-center">
+	<main class="form-signin">
+
+
+		<div th:if="${mensaje!=null}" th:text="${mensaje}"></div>
+		<br />
+		<form th:action="@{/usuario/validarUsuario}"  th:object="${objUsuario}" method="POST">
+			<img class="mb-4" src="" alt="" width="72" height="57">
+
+			<h1 class="h3 mb-3 fw-normal"><b>Bienvenido al Sistema</b></h1>
+			<div class="form-floating">
+				<input type="email" class="form-control" placeholder="correo" id="correo" name="correo" th:field="*{correo}" >
+				 <label for="floatingInput">Correo Electronico</label>
+			</div>
+			<div class="form-floating">
+				<input type="password" class="form-control" placeholder="Password" id="password" name="password" th:field="*{password}" >
+				<label for="floatingPassword">Contraseña</label>
+			</div>
+
+
+
+			<button class="w-100 btn btn-lg btn-success" type="submit"
+				value="Ingresar">Ingresar</button>
+			<br> <br>
+			
+			<p class="mt-5 mb-3 text-muted">&copy; 2021 / Hecho por Arregui y Postillos</p>
+		</form>
+		<p>
+				<a class="w-100 btn btn-lg btn-outline-info" th:href="@{/usuario/mostrarNuevoUsuario}">Crear Usuario</a>
+			</p>
+			<p>
+				<a class="w-100 btn btn-lg btn-outline-info" th:href="@{/usuario/mostrarRecuperarContrasenha}">Olvido Contraseña</a>
+			</p>
+	</main>
+
+</body>
+</html>

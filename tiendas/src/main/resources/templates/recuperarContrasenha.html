@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="css/signin.css"
+	th:href="@{/css/signin.css}">
+<link rel="stylesheet" href="css/bootstrap.css"
+	th:href="@{/css/bootstrap.css}">
+
+<title>Recuperar Contraseña</title>
+
+</head>
+<body>
+	<main class="form-signin">
+
+		<form th:action="@{/usuario/recuperarContrasenha}"
+			th:object="${objUsuario}" method="post">
+			<h1 class="h3 mb-3 fw-normal"><b>Recuperar Contraseña</b></h1>
+
+			<label><span></span></label>
+			<div class="form-floating">
+				<input type="email" class="form-control" id="correo"
+					placeholder="correo" name="correo" th:field="*{correo}" /> <label
+					for="floatingInput" >Correo Electronico</label>
+			</div>
+			<button class="w-100 btn btn-lg btn-success" type="submit"
+				value="Recuperar">Recuperar</button>
+				
+				<br> <br>
+					<p>
+				<a class="w-100 btn btn-lg btn-outline-info" th:href="@{/}">Regresar</a>
+			</p>
+		</form>
+		<br>
+		<br>
+		<br>
+		<div th:if="${mensaje!=null}" th:text="${mensaje}"></div>
+<!-- 		<h2 class="h3 mb-3 fw-normal">Contraseña Recuperada</h2> -->
+<!-- 		<form> -->
+<!-- 			<label>Contraseña:</label> <input type="text" name="password" -->
+<!-- 				th:value="${objUsuario.password}">  -->
+<!-- 		</form> -->
+	</main>
+</body>
+</html>
